@@ -46,9 +46,21 @@ app.get('/api/coincodex/get_coin_history/:symbol/:start_date/:end_date/:samples'
 	return c.json(await res.json());
 });
 
+app.get('/api/exchange/get_markets_by_coin/:symbol', async (c) => {
+	const symbol = c.req.param('symbol');
+	const res = await fetch(`https://coincodex.com/api/exchange/get_markets_by_coin/${symbol}`);
+	return c.json(await res.json());
+});
+
 app.get('/api/exchange/get_markets_by_coin/:symbol/', async (c) => {
 	const symbol = c.req.param('symbol');
 	const res = await fetch(`https://coincodex.com/api/exchange/get_markets_by_coin/${symbol}/`);
+	return c.json(await res.json());
+});
+
+app.get('/api/coincodex/get_coin_ranges/:comma_separated_list_of_symbols', async (c) => {
+	const comma_separated_list_of_symbols = c.req.param('comma_separated_list_of_symbols');
+	const res = await fetch(`https://coincodex.com/api/coincodex/get_coin_ranges/${comma_separated_list_of_symbols}`);
 	return c.json(await res.json());
 });
 
