@@ -1,6 +1,6 @@
 # ixo-coincodex-relayer
 
-This is a minimal project for relaying requests to coincodex and avoiding CORS issues.
+This is a minimal project for relaying requests to coincodex and avoiding CORS errors with web clients. It also caches and provides hard-coded coin values for impact tokens (e.g. CARBON Credits).
 
 ## Features
 
@@ -44,6 +44,7 @@ yarn deploy
 
 - GET `/api/coincodex/get_coin/:symbol`
 
+- GET `/api/coincodex/get_coin_history/:symbol/:start_date/:end_date`
 - GET `/api/coincodex/get_coin_history/:symbol/:start_date/:end_date/:samples`
 
 - GET `/api/exchange/get_markets_by_coin/:symbol`
@@ -53,6 +54,12 @@ yarn deploy
 - GET `/api/coincodex/get_coin_ranges/:comma_separated_list_of_symbols`
 
 - GET `/api/coincodex/get_coin_ranges/:comma_separated_list_of_symbols/`
+
+- GET `/api/custom/get_coins/:comma_separated_list_of_symbols`
+
+- GET `api/custom/get_coins_history/:comma_separated_list_of_symbols/:start_date/:end_date`
+
+- GET `api/custom/get_coins_history/:comma_separated_list_of_symbols/:start_date/:end_date/:samples`
 
 ## License
 
