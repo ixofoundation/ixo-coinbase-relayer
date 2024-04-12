@@ -4,7 +4,7 @@
 	"version": "0.0.1",
 	"main": "src/index.ts",
 	"author": "ixo",
-	"license": "MIT",
+	"license": "Apache 2",
 	"scripts": {
 		"test": "jest --verbose",
 		"dev": "wrangler dev src/index.ts",

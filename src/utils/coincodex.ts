@@ -9,12 +9,10 @@ export async function fetchCoinInfo(symbol: string) {
 	return await res.json();
 }
 
-export async function fetchCoinHistory(symbol: string, startDate: string, endDate: string, samples?: string) {
+export async function fetchCoinHistory(symbol: string, startDate: string, endDate: string, samples: string = '10') {
 	if (impactTokens.includes(symbol.toUpperCase())) return COIN_HISTORY[symbol.toUpperCase()];
 	const res = await fetch(
-		samples !== undefined
-			? `https://coincodex.com/api/coincodex/get_coin_history/${symbol}/${startDate}/${endDate}/${samples}`
-			: `https://coincodex.com/api/coincodex/get_coin_history/${symbol}/${startDate}/${endDate}/`,
+		`https://coincodex.com/api/coincodex/get_coin_history/${symbol}/${startDate}/${endDate}/${samples}`,
 	);
 	return await res.json();
 }

@@ -103,10 +103,12 @@ app.get('/api/custom/get_coins_history/:comma_separated_list_of_symbols/:start_d
 			...r,
 			[v]:
 				result.status === 'fulfilled'
-					? result.value?.[v] ??
-					  result.value?.[v.toUpperCase()] ??
-					  result.value?.[v.toLowerCase()] ??
-					  Object.keys(result.value)?.length === 1
+					? !result?.value
+						? result.value
+						: result.value?.[v] ??
+						  result.value?.[v?.toUpperCase()] ??
+						  result.value?.[v?.toLowerCase()] ??
+						  Object.keys(result.value)?.length === 1
 						? result.value?.[Object.keys(result.value)[0]]
 						: result.value
 					: null,
